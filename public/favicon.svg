@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="The Pack Up">
+<defs>
+  <radialGradient id="f-bg" cx="0.5" cy="0.38" r="0.8">
+    <stop offset="0" stop-color="#2B2019"/><stop offset="0.6" stop-color="#140F0C"/><stop offset="1" stop-color="#0B0807"/>
+  </radialGradient>
+</defs>
+<rect width="128" height="128" rx="28" fill="url(#f-bg)"/>
+
+<g transform="translate(-9.1 2.0) scale(1.1328)">
+<defs>
+  <linearGradient id="fm-gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FBEBC0"/><stop offset="0.5" stop-color="#E3C688"/><stop offset="1" stop-color="#B38D4C"/>
+  </linearGradient>
+  <linearGradient id="fm-deep" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0" stop-color="#C9A25A"/><stop offset="1" stop-color="#7A5C2C"/>
+  </linearGradient>
+  <linearGradient id="fm-top" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#FFF3CF"/><stop offset="1" stop-color="#E3C688"/>
+  </linearGradient>
+  <linearGradient id="fm-lft" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#DDBB77"/><stop offset="1" stop-color="#B08A4A"/>
+  </linearGradient>
+  <linearGradient id="fm-rgt" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#B58F50"/><stop offset="1" stop-color="#7C5E2D"/>
+  </linearGradient>
+  <radialGradient id="fm-glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFF1C9" stop-opacity="0.55"/><stop offset="1" stop-color="#E3C688" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<!-- glow behind the parcel -->
+<ellipse cx="60" cy="40" rx="34" ry="30" fill="url(#fm-glow)"/>
+<!-- arch -->
+<path d="M16 110Q60 30 104 110" fill="none" stroke="url(#fm-gold)" stroke-width="8"/>
+<path d="M16 110Q60 30 104 110" fill="none" stroke="#150F0B" stroke-opacity="0.25" stroke-width="1" transform="translate(0 4.5)"/>
+<!-- hangers -->
+<path d="M34 71V80M46 71V70.5M74 71V70.5M86 71V80" stroke="#E3C688" stroke-opacity="0.9" stroke-width="2.2" stroke-linecap="round"/>
+<!-- abutment feet -->
+<path d="M8 104H26V113H8ZM94 104H112V113H94Z" fill="url(#fm-deep)"/>
+<!-- deck -->
+<rect x="2" y="63" width="116" height="8" rx="4" fill="url(#fm-gold)"/>
+<rect x="4" y="63" width="112" height="2" rx="1" fill="#FFF6DC" fill-opacity="0.6"/>
+<!-- parcel on the bridge -->
+<path d="M40 40 60 51.5V63L40 51.5Z" fill="url(#fm-lft)"/>
+<path d="M60 51.5 80 40V51.5L60 63Z" fill="url(#fm-rgt)"/>
+<path d="M60 28.5 80 40 60 51.5 40 40Z" fill="url(#fm-top)"/>
+<path d="M48 35.6 53 32.8 72 43.8 67 46.6Z" fill="#241A13" fill-opacity="0.88"/>
+<path d="M67 46.6 72 43.8V47.6L67 50.4Z" fill="#241A13" fill-opacity="0.6"/>
+<path d="M60 28.5 80 40 60 51.5 40 40Z" fill="none" stroke="#FFF6DC" stroke-opacity="0.75" stroke-width="0.7" stroke-linejoin="round"/>
+<!-- sparkle -->
+<path d="M98 8 99.9 13.6 105.5 15.5 99.9 17.4 98 23 96.1 17.4 90.5 15.5 96.1 13.6Z" fill="#F6E2AE"/>
+<path d="M108 27 108.8 29.2 111 30 108.8 30.8 108 33 107.2 30.8 105 30 107.2 29.2Z" fill="#E3C688" fill-opacity="0.85"/>
+</g>
+</svg>

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "w1",
+    "title": "Casa Rosso — Branded pizza box",
+    "caption": "Full-colour print on corrugated board",
+    "filter": "Pizza",
+    "kind": "pizza",
+    "merchantId": "casa-rosso",
+    "finish": "branded",
+    "tone": "beige",
+    "size": "tall"
+  },
+  {
+    "id": "w2",
+    "title": "Slice Society — Black pizza box",
+    "caption": "Matte black board, gold one-colour print",
+    "filter": "Pizza",
+    "kind": "pizza",
+    "merchantId": "slice-society",
+    "finish": "black",
+    "tone": "ivory",
+    "size": "mid"
+  },
+  {
+    "id": "w3",
+    "title": "Crust & Ember — Kraft pizza box",
+    "caption": "Natural kraft with single-colour print",
+    "filter": "Pizza",
+    "kind": "pizza",
+    "merchantId": "crust-ember",
+    "finish": "kraft",
+    "tone": "charcoal",
+    "size": "short"
+  },
+  {
+    "id": "w4",
+    "title": "Slice Society — Burger clamshell",
+    "caption": "Branded clamshell with band print",
+    "filter": "Burgers & Fries",
+    "kind": "burger",
+    "merchantId": "slice-society",
+    "tone": "kraft",
+    "size": "mid"
+  },
+  {
+    "id": "w5",
+    "title": "Casa Rosso — Fry sleeve",
+    "caption": "Pocket sleeve with checker pattern",
+    "filter": "Burgers & Fries",
+    "kind": "fries",
+    "merchantId": "casa-rosso",
+    "tone": "ivory",
+    "size": "tall"
+  },
+  {
+    "id": "w6",
+    "title": "Oven Lane — Wrapped lunch box",
+    "caption": "Kraft box with printed wrap sleeve",
+    "filter": "Meal Boxes",
+    "kind": "lunch",
+    "merchantId": "oven-lane",
+    "tone": "beige",
+    "size": "short"
+  },
+  {
+    "id": "w7",
+    "title": "Crust & Ember — Takeaway bowl",
+    "caption": "Lidded container with printed band",
+    "filter": "Meal Boxes",
+    "kind": "container",
+    "merchantId": "crust-ember",
+    "tone": "charcoal",
+    "size": "mid"
+  },
+  {
+    "id": "w8",
+    "title": "Dough Theory — Paper bag",
+    "caption": "Twisted-handle bag, one-colour print",
+    "filter": "Cups & Bags",
+    "kind": "bag",
+    "merchantId": "dough-theory",
+    "tone": "kraft",
+    "size": "tall"
+  },
+  {
+    "id": "w9",
+    "title": "Oven Lane — Coffee cup & sleeve",
+    "caption": "Paper cup with printed sleeve",
+    "filter": "Cups & Bags",
+    "kind": "cup",
+    "merchantId": "oven-lane",
+    "tone": "ivory",
+    "size": "mid"
+  },
+  {
+    "id": "w10",
+    "title": "Oven Lane — Pastry window box",
+    "caption": "Window box for bakery counters",
+    "filter": "Bakery",
+    "kind": "bakery",
+    "merchantId": "oven-lane",
+    "tone": "beige",
+    "size": "short"
+  },
+  {
+    "id": "w11",
+    "title": "Dough Theory — Dessert box",
+    "caption": "Minimal ivory box, accent ribbon",
+    "filter": "Bakery",
+    "kind": "bakery",
+    "merchantId": "dough-theory",
+    "tone": "charcoal",
+    "size": "mid"
+  },
+  {
+    "id": "w12",
+    "title": "Oven Lane — Fibre bowl",
+    "caption": "Unbleached fibre bowl with lid",
+    "filter": "Eco",
+    "kind": "eco",
+    "merchantId": "oven-lane",
+    "tone": "kraft",
+    "size": "tall"
+  },
+  {
+    "id": "w13",
+    "title": "Dough Theory — White pizza box",
+    "caption": "Clean white board, accent print",
+    "filter": "Pizza",
+    "kind": "pizza",
+    "merchantId": "dough-theory",
+    "finish": "white",
+    "tone": "beige",
+    "size": "mid"
+  },
+  {
+    "id": "w14",
+    "title": "Casa Rosso — Delivery bag",
+    "caption": "Branded carrier for delivery orders",
+    "filter": "Cups & Bags",
+    "kind": "bag",
+    "merchantId": "casa-rosso",
+    "tone": "ivory",
+    "size": "short"
+  }
+]

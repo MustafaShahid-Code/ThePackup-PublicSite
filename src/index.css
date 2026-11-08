@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #16110e;
+  --ivory: #f8f3ea;
+  --cream: #ede3cf;
+  --gold: #c9a96e;
+  --ember: #d2582f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ivory font-sans text-charcoal antialiased;
+    background-image: linear-gradient(180deg, #f9f5ec 0%, #f3ecdd 100%);
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply font-sans text-[11px] font-semibold uppercase tracking-[0.24em];
+    color: #8f7038;
+  }
+  .aurora .eyebrow {
+    color: var(--gold);
+  }
+  /* Metallic gold for numerals and accents */
+  .gold-text {
+    background-image: linear-gradient(180deg, #efd9a8 0%, #c9a96e 48%, #a07b43 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .display-xl {
+    @apply font-display text-[clamp(2.9rem,8vw,7.2rem)] font-medium leading-[0.95];
+  }
+  .display-lg {
+    @apply font-display text-[clamp(2.3rem,5.2vw,4.6rem)] font-medium leading-[1.02];
+  }
+  .display-md {
+    @apply font-display text-[clamp(1.8rem,3.2vw,2.9rem)] font-medium leading-[1.08];
+  }
+  .lead {
+    @apply text-[17px] leading-relaxed sm:text-[18px];
+  }
+
+  /* ---------- Surfaces ---------- */
+
+  /** Solid, softly raised card on light backgrounds. */
+  .card {
+    @apply rounded-[28px] border border-charcoal/[0.06] bg-[#FFFDF8];
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 60px -34px rgba(70, 42, 12, 0.35);
+  }
+
+  /** Dark rounded panel with a warm gold/ember aurora. */
+  .aurora {
+    background-color: #0f0b09;
+    background-image: radial-gradient(60% 55% at 88% 0%, rgba(201, 169, 110, 0.32), transparent 62%),
+      radial-gradient(50% 60% at 0% 100%, rgba(122, 24, 42, 0.38), transparent 64%),
+      radial-gradient(35% 40% at 50% 55%, rgba(201, 169, 110, 0.07), transparent 70%);
+  }
+
+  /**
+   * Liquid-glass surfaces — used sparingly, only where they sit over rich
+   * backgrounds: header capsule, hero chips, studio panel, lightbox, hover captions.
+   */
+  .glass-dark {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.1));
+    -webkit-backdrop-filter: blur(22px) saturate(175%);
+    backdrop-filter: blur(22px) saturate(175%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 0 24px rgba(255, 255, 255, 0.04), 0 18px 44px -14px rgba(0, 0, 0, 0.55);
+  }
+  /** Darker, more opaque glass — for use over light or busy content (header, hover captions). */
+  .glass-ink {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(145deg, rgba(44, 34, 27, 0.74), rgba(22, 17, 14, 0.66));
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), inset 0 -1px 0 rgba(255, 255, 255, 0.06), 0 18px 40px -14px rgba(0, 0, 0, 0.5);
+  }
+  .glass-dark::before,
+  .glass-ink::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(120% 90% at 10% -15%, rgba(255, 255, 255, 0.3), transparent 46%),
+      radial-gradient(80% 60% at 100% 120%, rgba(198, 165, 106, 0.16), transparent 60%);
+  }
+  .glass-ink::before {
+    background: radial-gradient(110% 80% at 10% -20%, rgba(255, 255, 255, 0.2), transparent 50%);
+  }
+  .glass-light {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    backdrop-filter: blur(18px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0 1px 0 #fff, inset 0 -1px 0 rgba(255, 255, 255, 0.4), 0 10px 30px -12px rgba(70, 42, 12, 0.35);
+  }
+
+  /* ---------- Forms ---------- */
+  .field {
+    @apply mt-2 block w-full rounded-2xl border border-charcoal/15 bg-white/70 px-4 py-3.5 text-[15px] text-charcoal transition placeholder:text-charcoal/40 focus:border-gold focus:bg-white focus:outline-none focus:ring-4 focus:ring-gold/20;
+  }
+
+  .kraft-bg {
+    background-color: #c6a171;
+    background-image: radial-gradient(rgba(60, 38, 14, 0.12) 1px, transparent 1.4px),
+      radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1.4px);
+    background-size: 7px 7px, 11px 11px;
+    background-position: 0 0, 3px 4px;
+  }
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

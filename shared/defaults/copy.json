@@ -1,0 +1,289 @@
+[
+ {
+  "key": "home.heroEyebrow",
+  "group": "Home page",
+  "label": "Hero — small label",
+  "type": "text",
+  "default": "The bridge between kitchens and packaging vendors"
+ },
+ {
+  "key": "home.heroTitle",
+  "group": "Home page",
+  "label": "Hero — headline",
+  "type": "text",
+  "default": "Your Bridge to Packaging Vendors."
+ },
+ {
+  "key": "home.heroText",
+  "group": "Home page",
+  "label": "Hero — paragraph",
+  "type": "textarea",
+  "default": "We don’t print or manufacture boxes — we connect restaurants, pizzerias and food brands with the vendors who do. Tell us what you need to package, and we’ll bridge you to the right makers of pizza boxes, meal boxes, containers, bags and cups."
+ },
+ {
+  "key": "home.introEyebrow",
+  "group": "Home page",
+  "label": "Intro — small label",
+  "type": "text",
+  "default": "Who we are"
+ },
+ {
+  "key": "home.introTitle",
+  "group": "Home page",
+  "label": "Intro — headline",
+  "type": "text",
+  "default": "A Bridge, Not a Factory."
+ },
+ {
+  "key": "home.introP1",
+  "group": "Home page",
+  "label": "Intro — paragraph 1",
+  "type": "textarea",
+  "default": "Every box, bag and cup carries a first impression. But finding the right vendor — and explaining exactly what you need — is slow work. The Pack Up sits between the two sides: we take your requirement, shape it into a clear brief and connect it with vendors who make that packaging."
+ },
+ {
+  "key": "home.introP2",
+  "group": "Home page",
+  "label": "Intro — paragraph 2",
+  "type": "textarea",
+  "default": "We don’t manufacture, print or ship anything ourselves. The vendor you choose produces, prices and delivers; we make the connection easier, clearer and faster for both sides."
+ },
+ {
+  "key": "home.bridgeEyebrow",
+  "group": "Home page",
+  "label": "How it works — small label",
+  "type": "text",
+  "default": "How it works"
+ },
+ {
+  "key": "home.bridgeTitle",
+  "group": "Home page",
+  "label": "How it works — headline",
+  "type": "text",
+  "default": "Customer on one side. Vendor on the other. We’re the bridge."
+ },
+ {
+  "key": "home.bridgeNote",
+  "group": "Home page",
+  "label": "How it works — footnote",
+  "type": "textarea",
+  "default": "The Pack Up does not manufacture, print or ship packaging. Specifications, samples, pricing and delivery are agreed directly between you and the vendor."
+ },
+ {
+  "key": "home.studioEyebrow",
+  "group": "Home page",
+  "label": "Brand preview — small label",
+  "type": "text",
+  "default": "Brand preview"
+ },
+ {
+  "key": "home.studioTitle",
+  "group": "Home page",
+  "label": "Brand preview — headline",
+  "type": "text",
+  "default": "See your brand across every format — then brief a vendor."
+ },
+ {
+  "key": "home.studioText",
+  "group": "Home page",
+  "label": "Brand preview — paragraph",
+  "type": "textarea",
+  "default": "An illustrative preview of the packaging vendors in our network can produce for your brand — from pizza boxes to paper cups."
+ },
+ {
+  "key": "home.catsEyebrow",
+  "group": "Home page",
+  "label": "Categories — small label",
+  "type": "text",
+  "default": "Packaging for every menu"
+ },
+ {
+  "key": "home.catsTitle",
+  "group": "Home page",
+  "label": "Categories — headline",
+  "type": "text",
+  "default": "Built around how restaurants actually serve food."
+ },
+ {
+  "key": "home.whyEyebrow",
+  "group": "Home page",
+  "label": "Why us — small label",
+  "type": "text",
+  "default": "Why The Pack Up"
+ },
+ {
+  "key": "home.whyTitle",
+  "group": "Home page",
+  "label": "Why us — headline",
+  "type": "text",
+  "default": "A bridge works when both sides are well served."
+ },
+ {
+  "key": "home.featEyebrow",
+  "group": "Home page",
+  "label": "Featured concepts — small label",
+  "type": "text",
+  "default": "Featured concepts"
+ },
+ {
+  "key": "home.featTitle",
+  "group": "Home page",
+  "label": "Featured concepts — headline",
+  "type": "text",
+  "default": "What vendors can produce for your brand."
+ },
+ {
+  "key": "about.heroEyebrow",
+  "group": "About page",
+  "label": "Hero — small label",
+  "type": "text",
+  "default": "About The Pack Up"
+ },
+ {
+  "key": "about.heroTitle",
+  "group": "About page",
+  "label": "Hero — headline",
+  "type": "text",
+  "default": "The bridge between great food and the people who package it."
+ },
+ {
+  "key": "about.heroText",
+  "group": "About page",
+  "label": "Hero — paragraph",
+  "type": "textarea",
+  "default": "We’re not a packaging factory. The Pack Up is the bridge between restaurants who need packaging and the vendors who make it."
+ },
+ {
+  "key": "about.storyEyebrow",
+  "group": "About page",
+  "label": "Our story — small label",
+  "type": "text",
+  "default": "Our story"
+ },
+ {
+  "key": "about.storyTitle",
+  "group": "About page",
+  "label": "Our story — headline",
+  "type": "text",
+  "default": "Where it started."
+ },
+ {
+  "key": "about.storyText",
+  "group": "About page",
+  "label": "Our story — text (add your real story here)",
+  "type": "textarea",
+  "default": "Add the founding story here: why The Pack Up was started, the problem it set out to solve for restaurants and packaging vendors, and the people behind it. Please only add facts you can stand behind — dates, milestones and numbers are intentionally left out until confirmed."
+ },
+ {
+  "key": "about.whoEyebrow",
+  "group": "About page",
+  "label": "Who we are — small label",
+  "type": "text",
+  "default": "Who we are"
+ },
+ {
+  "key": "about.whoTitle",
+  "group": "About page",
+  "label": "Who we are — headline",
+  "type": "text",
+  "default": "One side asks. The other side makes. We connect them."
+ },
+ {
+  "key": "about.whoP1",
+  "group": "About page",
+  "label": "Who we are — paragraph 1",
+  "type": "textarea",
+  "default": "The Pack Up is a connector, not a manufacturer. We work with restaurants, pizzerias, cloud kitchens and food merchants to understand what they need to package — then bridge them to vendors and manufacturers who produce, price and deliver it."
+ },
+ {
+  "key": "about.whoP2",
+  "group": "About page",
+  "label": "Who we are — paragraph 2",
+  "type": "textarea",
+  "default": "Our focus is food packaging: pizza boxes, burger and meal boxes, takeaway containers, bags and cups — with bakery, corrugated, retail and custom-branded packaging available through the same vendor network."
+ },
+ {
+  "key": "solutions.heroTitle",
+  "group": "Other pages",
+  "label": "Solutions — headline",
+  "type": "text",
+  "default": "Packaging for every dish — from vendors who make it."
+ },
+ {
+  "key": "solutions.heroText",
+  "group": "Other pages",
+  "label": "Solutions — paragraph",
+  "type": "textarea",
+  "default": "From the pizza box to the paper cup — tell us what each merchant needs, and we’ll bridge you to the vendors who can make it."
+ },
+ {
+  "key": "showcase.heroTitle",
+  "group": "Other pages",
+  "label": "Showcase — headline",
+  "type": "text",
+  "default": "What the right vendor can make for you."
+ },
+ {
+  "key": "showcase.heroText",
+  "group": "Other pages",
+  "label": "Showcase — paragraph",
+  "type": "textarea",
+  "default": "Illustrative concepts of the packaging vendors in our network can produce — the same formats, dressed for different brands. The Pack Up connects you; the vendor makes it."
+ },
+ {
+  "key": "vendors.heroTitle",
+  "group": "Other pages",
+  "label": "Vendors — headline",
+  "type": "text",
+  "default": "Meet the restaurants that need what you make."
+ },
+ {
+  "key": "vendors.heroText",
+  "group": "Other pages",
+  "label": "Vendors — paragraph",
+  "type": "textarea",
+  "default": "The Pack Up is the bridge between restaurants and food merchants who need packaging — and the vendors and manufacturers who produce it. You make it; we bring the brief."
+ },
+ {
+  "key": "vendors.formTitle",
+  "group": "Other pages",
+  "label": "Vendor form — headline",
+  "type": "text",
+  "default": "Tell us what you make."
+ },
+ {
+  "key": "vendors.formText",
+  "group": "Other pages",
+  "label": "Vendor form — paragraph",
+  "type": "textarea",
+  "default": "We’re interested in manufacturers and suppliers of food packaging — boxes, containers, bags, cups, eco-friendly formats and printing. Share a few details and our team will be in touch."
+ },
+ {
+  "key": "contact.heroTitle",
+  "group": "Other pages",
+  "label": "Contact — headline",
+  "type": "text",
+  "default": "Let’s talk packaging."
+ },
+ {
+  "key": "contact.heroText",
+  "group": "Other pages",
+  "label": "Contact — paragraph",
+  "type": "textarea",
+  "default": "Tell us about your restaurant, your merchants and what you’d like to package. We’ll shape the brief and connect you with suitable packaging vendors."
+ },
+ {
+  "key": "cta.title",
+  "group": "Other pages",
+  "label": "Closing banner — headline",
+  "type": "text",
+  "default": "Let’s Create Something Worth Unboxing."
+ },
+ {
+  "key": "cta.text",
+  "group": "Other pages",
+  "label": "Closing banner — paragraph",
+  "type": "textarea",
+  "default": "Tell us what your restaurant or merchants need — we’ll bridge you to the right packaging vendors."
+ }
+]
