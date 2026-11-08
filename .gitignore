@@ -3,5 +3,5 @@ dist
 .env
 *.log
 
-data/
-.env
+# CMS runtime data (content, uploads, admin account), root only, NOT src/data
+/data/
