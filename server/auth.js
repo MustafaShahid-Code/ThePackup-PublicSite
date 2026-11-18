@@ -9,19 +9,21 @@ const hash = (pw, salt) => crypto.scryptSync(pw, salt, 64).toString('hex')
 let auth = readSecretFile('auth.json')
 if (!auth) {
   const pw = process.env.ADMIN_PASSWORD
-  if (!pw || pw.length < 10) {
-    console.error('\n[cms] First start: set ADMIN_PASSWORD (min 10 chars) in your environment, then restart.\n')
-    process.exit(1)
+  if (pw && pw.length >= 10) {
+    const salt = crypto.randomBytes(16).toString('hex')
+    auth = {
+      email: (process.env.ADMIN_EMAIL || 'admin@thepackup.local').toLowerCase(),
+      salt,
+      hash: hash(pw, salt),
+      secret: crypto.randomBytes(32).toString('hex'),
+    }
+    writeSecretFile('auth.json', auth)
+    console.log(`[cms] Admin account created for ${auth.email}. You can remove ADMIN_PASSWORD from the environment now.`)
+  } else {
+    // Never take the public website down over this: only the admin stays locked until a password is set.
+    console.error('\n[cms] No admin account yet. Set ADMIN_EMAIL and ADMIN_PASSWORD (min 10 chars) in the environment and restart.\n      The public site is running; admin login is disabled until then.\n')
+    auth = { email: '', salt: '', hash: '', secret: crypto.randomBytes(32).toString('hex'), unset: true }
   }
-  const salt = crypto.randomBytes(16).toString('hex')
-  auth = {
-    email: (process.env.ADMIN_EMAIL || 'admin@thepackup.local').toLowerCase(),
-    salt,
-    hash: hash(pw, salt),
-    secret: crypto.randomBytes(32).toString('hex'),
-  }
-  writeSecretFile('auth.json', auth)
-  console.log(`[cms] Admin account created for ${auth.email}. You can remove ADMIN_PASSWORD from the environment now.`)
 }
 if (process.env.SESSION_SECRET) auth.secret = process.env.SESSION_SECRET
 
@@ -60,7 +62,7 @@ export function throttled(ip) {
 export const noteFail = (ip) => attempts.set(ip, [...(attempts.get(ip) || []), Date.now()])
 
 export function login(email, password) {
-  if (typeof email !== 'string' || typeof password !== 'string') return false
+  if (auth.unset || typeof email !== 'string' || typeof password !== 'string') return false
   return safeEq(email.toLowerCase(), auth.email) && safeEq(hash(password, auth.salt), auth.hash)
 }
 
@@ -88,3 +90,4 @@ export function changePassword(current, next) {
   return null
 }
 export const adminEmail = () => auth.email
+export const adminReady = () => !auth.unset

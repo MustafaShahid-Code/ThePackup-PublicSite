@@ -17,9 +17,22 @@ try {
     if (process.env[m[1]] === undefined && v !== '') process.env[m[1]] = v
   }
 } catch {}
-export const DATA_DIR = path.resolve(process.env.DATA_DIR || path.join(ROOT, 'data'))
+function pickDataDir() {
+  const wanted = path.resolve(process.env.DATA_DIR || path.join(ROOT, 'data'))
+  try {
+    fs.mkdirSync(path.join(wanted, 'uploads'), { recursive: true })
+    fs.accessSync(wanted, fs.constants.W_OK)
+    return wanted
+  } catch (e) {
+    // Don't take the site down: fall back to a folder inside the app (NOT kept across redeploys).
+    const fallback = path.join(ROOT, 'data')
+    console.error(`\n[cms] Can't use DATA_DIR "${wanted}" (${e.code || e.message}). Using "${fallback}" for now — content saved there is lost on redeploy. Fix DATA_DIR and restart.\n`)
+    fs.mkdirSync(path.join(fallback, 'uploads'), { recursive: true })
+    return fallback
+  }
+}
+export const DATA_DIR = pickDataDir()
 export const UPLOAD_DIR = path.join(DATA_DIR, 'uploads')
-fs.mkdirSync(UPLOAD_DIR, { recursive: true })
 
 import { THEME_DEFAULTS } from '../shared/theme.js'
 

@@ -4,7 +4,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { ROOT, DATA_DIR, UPLOAD_DIR, defaults, get, save, load } from './store.js'
-import { login, setSession, clearSession, currentUser, requireAdmin, throttled, noteFail, changePassword, adminEmail } from './auth.js'
+import { login, setSession, clearSession, currentUser, requireAdmin, throttled, noteFail, changePassword, adminEmail, adminReady } from './auth.js'
 import { cleanCopy, cleanSite, cleanCategories, cleanWhy, cleanWork, cleanTheme, cleanSettings, OPTIONS } from './validate.js'
 import { themeCss, PRESETS } from '../shared/theme.js'
 import compression from 'compression'
@@ -47,6 +47,7 @@ app.get('/api/health', (_req, res) => {
 // ---------- admin auth ----------
 app.post('/api/admin/login', (req, res) => {
   const ip = req.ip
+  if (!adminReady()) return res.status(503).json({ error: 'Admin is not set up yet: add ADMIN_EMAIL and ADMIN_PASSWORD (10+ characters) in the hosting environment variables, then restart the app.' })
   if (throttled(ip)) return res.status(429).json({ error: 'Too many attempts. Try again in 15 minutes.' })
   if (!login(req.body?.email, req.body?.password)) {
     noteFail(ip)
