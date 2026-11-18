@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Theme tokens (r g b) — overridden at runtime by the CMS theme (admin → Colours & buttons). Keep in sync with shared/theme.js */
+  --c-charcoal: 15 45 61;
+  --c-ivory: 247 247 247;
+  --c-cream: 233 237 240;
+  --c-gold: 255 122 0;
+  --c-deep: 184 84 0;
+  --c-dark: 10 31 43;
+  --c-glow: 29 90 120;
+  --c-card: 255 255 255;
+  --c-ember: 156 163 175;
+  --btn-from: #ff8a1f;
+  --btn-to: #ff7a00;
+  --btn-text: #0f2d3d;
+  --btn-dark-bg: #0f2d3d;
+  --btn-dark-text: #ffffff;
+  --btn-radius: 12px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  /* Lenis smooth scrolling */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-ivory font-sans text-charcoal antialiased;
+    overflow-x: hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold;
+    letter-spacing: -0.025em;
+  }
+  ::selection {
+    background: rgb(var(--c-gold));
+    color: rgb(var(--c-charcoal));
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-gold));
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10;
+  }
+  /* Small orange cube + label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 font-sans text-[12px] font-semibold uppercase tracking-[0.2em];
+    color: rgb(var(--c-deep));
+  }
+  .eyebrow::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    background: rgb(var(--c-gold));
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    flex: none;
+  }
+  .navy .eyebrow {
+    color: rgb(var(--c-gold));
+  }
+  .display-xl {
+    @apply font-display text-[clamp(2.7rem,7vw,5.6rem)] font-bold leading-[1.02];
+    letter-spacing: -0.035em;
+  }
+  .display-lg {
+    @apply font-display text-[clamp(2rem,4.4vw,3.5rem)] font-bold leading-[1.08];
+    letter-spacing: -0.03em;
+  }
+  .display-md {
+    @apply font-display text-[clamp(1.5rem,2.6vw,2.1rem)] font-semibold leading-[1.15];
+  }
+  .lead {
+    @apply text-[17px] leading-relaxed sm:text-[18px];
+  }
+
+  /* ---------- Surfaces ---------- */
+  /* Frosted-glass card: translucent surface, soft blur, bright top edge. Needs something colourful behind it (see .ambient). */
+  .card {
+    @apply rounded-[20px] border border-white/70;
+    background-color: rgb(var(--c-card) / 0.66);
+    -webkit-backdrop-filter: blur(14px) saturate(1.5);
+    backdrop-filter: blur(14px) saturate(1.5);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.85), 0 0 0 1px rgb(var(--c-charcoal) / 0.06), 0 16px 36px -22px rgb(var(--c-charcoal) / 0.35);
+  }
+  .card-hover {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgb(var(--c-gold) / 0.6);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), 0 0 0 1px rgb(var(--c-gold) / 0.25), 0 24px 44px -22px rgb(var(--c-charcoal) / 0.4);
+  }
+
+  /* Soft colour blobs behind a section so the glass cards have something to refract. */
+  .ambient {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .ambient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(420px 320px at 12% 18%, rgb(var(--c-gold) / 0.2), transparent 70%), radial-gradient(520px 380px at 88% 70%, rgb(var(--c-glow) / 0.2), transparent 70%),
+      radial-gradient(360px 280px at 55% 100%, rgb(var(--c-gold) / 0.12), transparent 70%);
+  }
+
+  /** Glass on navy panels */
+  .glass-navy {
+    border: 1px solid rgb(255 255 255 / 0.16);
+    background-color: rgb(255 255 255 / 0.06);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18);
+  }
+
+  /** Navy panel with a faint isometric-cube pattern — the brand's signature surface. */
+  .navy {
+    background-color: rgb(var(--c-charcoal));
+    color: #fff;
+    position: relative;
+    isolation: isolate;
+  }
+  .navy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='96' height='166' viewBox='0 0 96 166' fill='none' stroke='white' stroke-opacity='0.055' stroke-width='1.2'><path d='M48 0 96 27.7V83L48 110.7 0 83V27.7ZM48 55.3V110.7M48 55.3 0 27.7M48 55.3 96 27.7'/><path d='M0 110.7 48 138.3V166M96 110.7 48 138.3'/></svg>");
+    background-size: 96px 166px;
+  }
+  .navy::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(60% 70% at 88% 8%, rgb(var(--c-glow) / 0.55), transparent 66%), radial-gradient(40% 50% at 0% 100%, rgb(var(--c-gold) / 0.12), transparent 70%);
+  }
+
+  /* ---------- Forms ---------- */
+  .field {
+    @apply mt-2 block w-full rounded-xl border border-charcoal/15 bg-white px-4 py-3.5 text-[15px] text-charcoal transition placeholder:text-charcoal/40 focus:border-gold focus:outline-none focus:ring-4 focus:ring-gold/20;
+  }
+
+  /* ---------- Buttons (colours + shape come from the theme) ---------- */
+  .btn-shape {
+    border-radius: var(--btn-radius);
+  }
+  .btn-primary {
+    background-color: var(--btn-to);
+    background-image: linear-gradient(180deg, var(--btn-from), var(--btn-to));
+    color: var(--btn-text);
+    box-shadow: 0 10px 22px -12px rgb(var(--c-gold) / 0.9);
+  }
+  .btn-dark {
+    background-color: var(--btn-dark-bg);
+    color: var(--btn-dark-text);
+  }
+
+  .kraft-bg {
+    background-color: #c6a171;
+    background-image: radial-gradient(rgba(60, 38, 14, 0.12) 1px, transparent 1.4px), radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1.4px);
+    background-size: 7px 7px, 11px 11px;
+    background-position: 0 0, 3px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

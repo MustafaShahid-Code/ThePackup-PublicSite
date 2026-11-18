@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "pizza-boxes",
+    "title": "Pizza Boxes",
+    "short": "Corrugated boxes branded for every pizzeria, from one outlet to a multi-merchant roll-out.",
+    "description": "The pizza box is the last thing a customer touches before the first bite. We connect pizzerias and delivery brands with corrugated box vendors who can print, size and finish boxes to match each merchant’s identity — whether you need one design or a different design for every merchant you serve.",
+    "kind": "pizza",
+    "merchantId": "casa-rosso",
+    "tone": "kraft",
+    "customisation": [
+      "Merchant-specific artwork on every box",
+      "Kraft, white or black board",
+      "One-colour to full-colour printing",
+      "Personal to family sizes",
+      "Grease-resistant and venting options (vendor dependent)"
+    ],
+    "applications": [
+      "Pizzerias",
+      "Cloud kitchens",
+      "Delivery-only brands",
+      "Franchise groups",
+      "Catering"
+    ]
+  },
+  {
+    "slug": "burger-sandwich",
+    "title": "Burger, Sandwich & Fries",
+    "short": "Clamshells, wraps and fry sleeves that keep the build intact and the brand visible.",
+    "description": "Handheld food needs packaging that protects texture and presentation. We help restaurants find vendors for clamshell boxes, sandwich wraps and fry sleeves that hold up in delivery and photograph well on the table.",
+    "kind": "burger",
+    "merchantId": "slice-society",
+    "tone": "beige",
+    "customisation": [
+      "Branded clamshells and wraps",
+      "Fry sleeves and scoops",
+      "Matching sauce and tray liners",
+      "Window or solid designs"
+    ],
+    "applications": [
+      "Burger joints",
+      "Sandwich bars",
+      "Food trucks",
+      "Quick-service chains"
+    ]
+  },
+  {
+    "slug": "meal-boxes",
+    "title": "Lunch & Meal Boxes",
+    "short": "Compartment and sleeve-wrapped meal boxes for office lunch, catering and subscriptions.",
+    "description": "From a single hot lunch to a full catered spread, meal boxes need to be organised, stackable and presentable. We connect you with vendors of compartment boxes and wrap sleeves that make every meal feel considered.",
+    "kind": "lunch",
+    "merchantId": "oven-lane",
+    "tone": "ivory",
+    "customisation": [
+      "Single and multi-compartment layouts",
+      "Printed wrap sleeves",
+      "Stackable formats",
+      "Cutlery and napkin bundles"
+    ],
+    "applications": [
+      "Corporate catering",
+      "Meal-prep brands",
+      "Restaurants with set menus",
+      "Events"
+    ]
+  },
+  {
+    "slug": "takeaway-containers",
+    "title": "Takeaway Containers",
+    "short": "Bowls, tubs and lidded containers for hot and cold dishes, sized for delivery.",
+    "description": "Soups, rice, noodles, salads and curries each need the right container. We connect restaurants with vendors offering lidded bowls and tubs in multiple volumes — branded where it matters, practical everywhere.",
+    "kind": "container",
+    "merchantId": "crust-ember",
+    "tone": "beige",
+    "customisation": [
+      "Multiple volumes and shapes",
+      "Clear or solid lids",
+      "Printed labels and sleeves",
+      "Leak-resistant formats (vendor dependent)"
+    ],
+    "applications": [
+      "Asian and Middle Eastern kitchens",
+      "Salad bars",
+      "Soup and curry specialists",
+      "Delivery platforms"
+    ]
+  },
+  {
+    "slug": "bags-cups",
+    "title": "Paper Bags & Cups",
+    "short": "Handled bags, delivery carriers and hot or cold cups that carry the brand outside the restaurant.",
+    "description": "Bags and cups travel through the city on your behalf. We help merchants find vendors for branded paper bags, delivery carriers, cups and sleeves so the identity stays consistent from counter to doorstep.",
+    "kind": "bag",
+    "merchantId": "dough-theory",
+    "tone": "ivory",
+    "customisation": [
+      "Flat or twisted handles",
+      "Kraft or coloured paper",
+      "Single and double-wall cups",
+      "Matching sleeves and lids"
+    ],
+    "applications": [
+      "Cafés",
+      "Restaurants with takeaway counters",
+      "Delivery brands",
+      "Food courts"
+    ]
+  },
+  {
+    "slug": "eco-friendly",
+    "title": "Eco-Friendly Food Packaging",
+    "short": "Paper-based and fibre-based alternatives for restaurants moving away from single-use plastic.",
+    "description": "Many merchants want packaging that reflects their values. We connect restaurants with vendors offering paper, moulded-fibre and other plant-based options. Specific material claims and certifications should be confirmed directly with each vendor.",
+    "kind": "eco",
+    "merchantId": "oven-lane",
+    "tone": "kraft",
+    "customisation": [
+      "Kraft and unbleached board",
+      "Moulded-fibre bowls and trays",
+      "Paper-based lids and cutlery",
+      "Minimal-ink printing"
+    ],
+    "applications": [
+      "Sustainability-led restaurants",
+      "Hotels and resorts",
+      "Events and festivals",
+      "Corporate caterers"
+    ]
+  }
+]

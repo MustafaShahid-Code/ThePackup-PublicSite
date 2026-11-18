@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+*.log
+
+# CMS runtime data (content, uploads, admin account) — root only, NOT src/data
+/data/
+
+# original story photos (only the optimised copies in public/story are deployed)
+/story-src/*
+!/story-src/README.txt

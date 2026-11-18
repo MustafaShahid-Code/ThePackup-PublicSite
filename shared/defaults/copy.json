@@ -1,0 +1,590 @@
+[
+  {
+    "key": "home.heroEyebrow",
+    "group": "Home page",
+    "label": "Hero — small label",
+    "type": "text",
+    "default": "Packaging · Storage · Delivery"
+  },
+  {
+    "key": "home.heroTitle",
+    "group": "Home page",
+    "label": "Hero — headline",
+    "type": "text",
+    "default": "Pack. Store. Deliver."
+  },
+  {
+    "key": "home.heroText",
+    "group": "Home page",
+    "label": "Hero — text",
+    "type": "textarea",
+    "default": "Packup connects your business with verified packaging vendors, then stores your stock and delivers it when you need it. One partner from first brief to your doorstep."
+  },
+  {
+    "key": "story.c3x",
+    "group": "Home page",
+    "label": "Story 3 — text",
+    "type": "textarea",
+    "default": "When stock runs low or a launch is coming, we plan the delivery, so packaging arrives before you need it."
+  },
+  {
+    "key": "story.c3t",
+    "group": "Home page",
+    "label": "Story 3 — headline",
+    "type": "text",
+    "default": "Delivered on time."
+  },
+  {
+    "key": "story.c2x",
+    "group": "Home page",
+    "label": "Story 2 — text",
+    "type": "textarea",
+    "default": "Order in bulk for better prices. We hold the stock and release it when you need it, so your kitchen stays clear."
+  },
+  {
+    "key": "story.c2t",
+    "group": "Home page",
+    "label": "Story 2 — headline",
+    "type": "text",
+    "default": "Stored and ready."
+  },
+  {
+    "key": "story.c1x",
+    "group": "Home page",
+    "label": "Story 1 — text",
+    "type": "textarea",
+    "default": "Your packaging is specified, sourced from verified vendors and branded for your business, so every order looks like yours."
+  },
+  {
+    "key": "story.c1t",
+    "group": "Home page",
+    "label": "Story 1 — headline",
+    "type": "text",
+    "default": "Packed with care."
+  },
+  {
+    "key": "home.pillarsEyebrow",
+    "group": "Home page",
+    "label": "Three services — small label",
+    "type": "text",
+    "default": "What we do"
+  },
+  {
+    "key": "home.pillarsTitle",
+    "group": "Home page",
+    "label": "Three services — headline",
+    "type": "text",
+    "default": "Everything your packaging needs, in one place."
+  },
+  {
+    "key": "home.howEyebrow",
+    "group": "Home page",
+    "label": "How it works — small label",
+    "type": "text",
+    "default": "How it works"
+  },
+  {
+    "key": "home.howTitle",
+    "group": "Home page",
+    "label": "How it works — headline",
+    "type": "text",
+    "default": "From first brief to your doorstep in four steps."
+  },
+  {
+    "key": "home.howText",
+    "group": "Home page",
+    "label": "How it works — text",
+    "type": "textarea",
+    "default": "You tell us what you need once. We handle the vendors, the stock and the deliveries."
+  },
+  {
+    "key": "how.s1t",
+    "group": "Home page",
+    "label": "Step 1 — title",
+    "type": "text",
+    "default": "Tell us what you need"
+  },
+  {
+    "key": "how.s1x",
+    "group": "Home page",
+    "label": "Step 1 — text",
+    "type": "textarea",
+    "default": "Share your products, sizes, quantities and branding. A short form is all it takes."
+  },
+  {
+    "key": "how.s2t",
+    "group": "Home page",
+    "label": "Step 2 — title",
+    "type": "text",
+    "default": "We match you with vendors"
+  },
+  {
+    "key": "how.s2x",
+    "group": "Home page",
+    "label": "Step 2 — text",
+    "type": "textarea",
+    "default": "Your brief goes to suitable, verified packaging vendors, and you compare their quotes."
+  },
+  {
+    "key": "how.s3t",
+    "group": "Home page",
+    "label": "Step 3 — title",
+    "type": "text",
+    "default": "Production and packing"
+  },
+  {
+    "key": "how.s3x",
+    "group": "Home page",
+    "label": "Step 3 — text",
+    "type": "textarea",
+    "default": "The vendor produces your packaging to your specification, and we keep track of it for you."
+  },
+  {
+    "key": "how.s4t",
+    "group": "Home page",
+    "label": "Step 4 — title",
+    "type": "text",
+    "default": "Stored and delivered"
+  },
+  {
+    "key": "how.s4x",
+    "group": "Home page",
+    "label": "Step 4 — text",
+    "type": "textarea",
+    "default": "Stock is held for you and delivered when and where you need it, so you never run out."
+  },
+  {
+    "key": "home.catsEyebrow",
+    "group": "Home page",
+    "label": "Packaging range — small label",
+    "type": "text",
+    "default": "Packaging range"
+  },
+  {
+    "key": "home.catsTitle",
+    "group": "Home page",
+    "label": "Packaging range — headline",
+    "type": "text",
+    "default": "Packaging for every kind of business."
+  },
+  {
+    "key": "home.studioEyebrow",
+    "group": "Home page",
+    "label": "Brand preview — small label",
+    "type": "text",
+    "default": "Brand preview"
+  },
+  {
+    "key": "home.studioTitle",
+    "group": "Home page",
+    "label": "Brand preview — headline",
+    "type": "text",
+    "default": "See your brand across every format."
+  },
+  {
+    "key": "home.studioText",
+    "group": "Home page",
+    "label": "Brand preview — text",
+    "type": "textarea",
+    "default": "An illustrative preview of how one brand can look across different packaging. Pick a sample brand to see it change."
+  },
+  {
+    "key": "home.whyEyebrow",
+    "group": "Home page",
+    "label": "Why Packup — small label",
+    "type": "text",
+    "default": "Why Packup"
+  },
+  {
+    "key": "home.whyTitle",
+    "group": "Home page",
+    "label": "Why Packup — headline",
+    "type": "text",
+    "default": "Simple solutions for a bigger tomorrow."
+  },
+  {
+    "key": "home.vendorTitle",
+    "group": "Home page",
+    "label": "Vendors strip — headline",
+    "type": "text",
+    "default": "Make packaging? Grow with our network."
+  },
+  {
+    "key": "home.vendorText",
+    "group": "Home page",
+    "label": "Vendors strip — text",
+    "type": "textarea",
+    "default": "We are always looking for reliable packaging manufacturers and suppliers. Join the vendors that businesses find through Packup."
+  },
+  {
+    "key": "services.heroEyebrow",
+    "group": "Services",
+    "label": "Services page — small label",
+    "type": "text",
+    "default": "Our services"
+  },
+  {
+    "key": "services.heroTitle",
+    "group": "Services",
+    "label": "Services page — headline",
+    "type": "text",
+    "default": "Pack. Store. Deliver. One partner for all three."
+  },
+  {
+    "key": "services.heroText",
+    "group": "Services",
+    "label": "Services page — text",
+    "type": "textarea",
+    "default": "From sourcing the right packaging to holding your stock and getting it to your door, Packup keeps it simple."
+  },
+  {
+    "key": "pack.title",
+    "group": "Services",
+    "label": "Pack — title",
+    "type": "text",
+    "default": "Pack"
+  },
+  {
+    "key": "pack.text",
+    "group": "Services",
+    "label": "Pack — short text",
+    "type": "textarea",
+    "default": "Packaging sourced from verified vendors, specified and branded for your business."
+  },
+  {
+    "key": "pack.detail",
+    "group": "Services",
+    "label": "Pack — detail",
+    "type": "textarea",
+    "default": "Tell us what you sell and how it is served or shipped. We turn that into a clear brief and introduce it to suitable packaging vendors, so you compare real quotes instead of chasing suppliers one by one."
+  },
+  {
+    "key": "pack.b1",
+    "group": "Services",
+    "label": "Pack — point 1",
+    "type": "text",
+    "default": "Pizza, burger, meal and takeaway packaging"
+  },
+  {
+    "key": "pack.b2",
+    "group": "Services",
+    "label": "Pack — point 2",
+    "type": "text",
+    "default": "Bags, cups, cartons and custom-branded boxes"
+  },
+  {
+    "key": "pack.b3",
+    "group": "Services",
+    "label": "Pack — point 3",
+    "type": "text",
+    "default": "Sizes, materials and print specified per product"
+  },
+  {
+    "key": "pack.b4",
+    "group": "Services",
+    "label": "Pack — point 4",
+    "type": "text",
+    "default": "Quotes from several verified vendors"
+  },
+  {
+    "key": "store.title",
+    "group": "Services",
+    "label": "Store — title",
+    "type": "text",
+    "default": "Store"
+  },
+  {
+    "key": "store.text",
+    "group": "Services",
+    "label": "Store — short text",
+    "type": "textarea",
+    "default": "Your packaging stock held safely until you need it."
+  },
+  {
+    "key": "store.detail",
+    "group": "Services",
+    "label": "Store — detail",
+    "type": "textarea",
+    "default": "Ordering in bulk gets better prices, but few businesses have room to keep it all. We can hold your packaging for you and release it in the quantities you need, so you buy smart without crowding your kitchen or shop."
+  },
+  {
+    "key": "store.b1",
+    "group": "Services",
+    "label": "Store — point 1",
+    "type": "text",
+    "default": "Bulk ordering without the storage headache"
+  },
+  {
+    "key": "store.b2",
+    "group": "Services",
+    "label": "Store — point 2",
+    "type": "text",
+    "default": "Stock released to you in the quantities you need"
+  },
+  {
+    "key": "store.b3",
+    "group": "Services",
+    "label": "Store — point 3",
+    "type": "text",
+    "default": "Clear visibility of what you have in storage"
+  },
+  {
+    "key": "store.b4",
+    "group": "Services",
+    "label": "Store — point 4",
+    "type": "text",
+    "default": "Shared across your outlets and branches"
+  },
+  {
+    "key": "deliver.title",
+    "group": "Services",
+    "label": "Deliver — title",
+    "type": "text",
+    "default": "Deliver"
+  },
+  {
+    "key": "deliver.text",
+    "group": "Services",
+    "label": "Deliver — short text",
+    "type": "textarea",
+    "default": "Reliable delivery to your restaurant, outlet or warehouse."
+  },
+  {
+    "key": "deliver.detail",
+    "group": "Services",
+    "label": "Deliver — detail",
+    "type": "textarea",
+    "default": "When stock runs low, you tell us and we arrange delivery from storage or straight from the vendor. Planning ahead for a busy season or a new branch? We coordinate the timing so packaging arrives before you need it."
+  },
+  {
+    "key": "deliver.b1",
+    "group": "Services",
+    "label": "Deliver — point 1",
+    "type": "text",
+    "default": "Delivery to one site or several outlets"
+  },
+  {
+    "key": "deliver.b2",
+    "group": "Services",
+    "label": "Deliver — point 2",
+    "type": "text",
+    "default": "Scheduled and on-demand drop-offs"
+  },
+  {
+    "key": "deliver.b3",
+    "group": "Services",
+    "label": "Deliver — point 3",
+    "type": "text",
+    "default": "Coordinated timing for launches and peak seasons"
+  },
+  {
+    "key": "deliver.b4",
+    "group": "Services",
+    "label": "Deliver — point 4",
+    "type": "text",
+    "default": "One contact for questions and tracking"
+  },
+  {
+    "key": "services.noteTitle",
+    "group": "Services",
+    "label": "Services — note title",
+    "type": "text",
+    "default": "Good to know"
+  },
+  {
+    "key": "services.note",
+    "group": "Services",
+    "label": "Services — note",
+    "type": "textarea",
+    "default": "Packup works with independent packaging vendors and delivery partners. Availability, lead times and pricing depend on the product and the vendor, and are confirmed in your quote."
+  },
+  {
+    "key": "about.heroEyebrow",
+    "group": "About page",
+    "label": "About — small label",
+    "type": "text",
+    "default": "About Packup"
+  },
+  {
+    "key": "about.heroTitle",
+    "group": "About page",
+    "label": "About — headline",
+    "type": "text",
+    "default": "Simple packaging solutions for a bigger tomorrow."
+  },
+  {
+    "key": "about.heroText",
+    "group": "About page",
+    "label": "About — text",
+    "type": "textarea",
+    "default": "Packup helps businesses get the packaging they need without the chase: we connect them with verified vendors, hold their stock and deliver it."
+  },
+  {
+    "key": "about.storyEyebrow",
+    "group": "About page",
+    "label": "Story — small label",
+    "type": "text",
+    "default": "Our story"
+  },
+  {
+    "key": "about.storyTitle",
+    "group": "About page",
+    "label": "Story — headline",
+    "type": "text",
+    "default": "Why we started Packup."
+  },
+  {
+    "key": "about.storyText",
+    "group": "About page",
+    "label": "Story — text",
+    "type": "textarea",
+    "default": "Add the founding story here: the problem you saw, who you wanted to help and what Packup stands for. A few honest sentences work better than marketing language."
+  },
+  {
+    "key": "about.whoEyebrow",
+    "group": "About page",
+    "label": "Who we are — small label",
+    "type": "text",
+    "default": "What we do"
+  },
+  {
+    "key": "about.whoTitle",
+    "group": "About page",
+    "label": "Who we are — headline",
+    "type": "text",
+    "default": "The link between businesses and the people who make packaging."
+  },
+  {
+    "key": "about.whoP1",
+    "group": "About page",
+    "label": "Who we are — paragraph 1",
+    "type": "textarea",
+    "default": "Packup is a connector. We work with restaurants, food brands and businesses that need packaging, and with vendors who manufacture it. We bring the two sides together and look after storage and delivery in between."
+  },
+  {
+    "key": "about.whoP2",
+    "group": "About page",
+    "label": "Who we are — paragraph 2",
+    "type": "textarea",
+    "default": "Our focus is food and restaurant packaging first, with cartons, retail and custom-branded packaging available through the same network."
+  },
+  {
+    "key": "packaging.heroTitle",
+    "group": "Other pages",
+    "label": "Packaging page — headline",
+    "type": "text",
+    "default": "Packaging for every dish, parcel and product."
+  },
+  {
+    "key": "packaging.heroText",
+    "group": "Other pages",
+    "label": "Packaging page — text",
+    "type": "textarea",
+    "default": "Browse the categories we source. Tell us what you need and we will bring you quotes from suitable vendors."
+  },
+  {
+    "key": "gallery.heroTitle",
+    "group": "Other pages",
+    "label": "Gallery page — headline",
+    "type": "text",
+    "default": "What the right vendor can make for you."
+  },
+  {
+    "key": "gallery.heroText",
+    "group": "Other pages",
+    "label": "Gallery page — text",
+    "type": "textarea",
+    "default": "Illustrated concepts showing how one packaging range can be branded for different businesses. Real project photos can replace these from the admin."
+  },
+  {
+    "key": "vendors.heroTitle",
+    "group": "Other pages",
+    "label": "Vendors page — headline",
+    "type": "text",
+    "default": "Reach the businesses that need what you make."
+  },
+  {
+    "key": "vendors.heroText",
+    "group": "Other pages",
+    "label": "Vendors page — text",
+    "type": "textarea",
+    "default": "Packup connects restaurants and businesses with reliable packaging manufacturers and suppliers. Join our vendor network and receive well-specified briefs."
+  },
+  {
+    "key": "vendors.formTitle",
+    "group": "Other pages",
+    "label": "Vendors form — headline",
+    "type": "text",
+    "default": "Tell us what you make."
+  },
+  {
+    "key": "vendors.formText",
+    "group": "Other pages",
+    "label": "Vendors form — text",
+    "type": "textarea",
+    "default": "We are interested in manufacturers and suppliers of food and retail packaging. Share your products and we will be in touch."
+  },
+  {
+    "key": "contact.heroTitle",
+    "group": "Other pages",
+    "label": "Contact page — headline",
+    "type": "text",
+    "default": "Let’s talk packaging."
+  },
+  {
+    "key": "contact.heroText",
+    "group": "Other pages",
+    "label": "Contact page — text",
+    "type": "textarea",
+    "default": "Tell us what your business needs and we will get back to you with the next steps."
+  },
+  {
+    "key": "cta.title",
+    "group": "Other pages",
+    "label": "Closing banner — headline",
+    "type": "text",
+    "default": "Ready to pack up your next order?"
+  },
+  {
+    "key": "cta.text",
+    "group": "Other pages",
+    "label": "Closing banner — text",
+    "type": "textarea",
+    "default": "Tell us what you need. We will find the vendors, hold the stock and deliver."
+  },
+  {
+    "key": "privacy.heroTitle",
+    "group": "Privacy & cookies",
+    "label": "Privacy page — headline",
+    "type": "text",
+    "default": "Privacy Policy"
+  },
+  {
+    "key": "privacy.heroText",
+    "group": "Privacy & cookies",
+    "label": "Privacy page — intro",
+    "type": "textarea",
+    "default": "How Packup handles information you share with us."
+  },
+  {
+    "key": "privacy.body",
+    "group": "Privacy & cookies",
+    "label": "Privacy page — full text (DRAFT template: complete the [brackets] and have it reviewed by your legal adviser before relying on it). Start a line with ## for a heading; leave a blank line between paragraphs.",
+    "type": "textarea",
+    "default": "## Who we are\n[Company legal name] (“Packup”) runs this website. You can contact us at [business email].\n\n## What we collect\nWhen you send an enquiry through the contact or vendor form, we ask for your name, company, email address, phone number and message. We use these details to respond to your enquiry and, where you ask us to, to connect you with suitable packaging vendors or customers.\n\n## Cookies and browser storage\nThis website does not use advertising or analytics cookies. It keeps a small amount of information in your browser during your visit, for example so the intro animation is not repeated and to remember if you dismissed a notice. [Update this section if you add analytics or other tools.]\n\n## How long we keep information\n[State how long enquiry details are kept.]\n\n## Your choices\nYou can ask us to access, correct or delete the personal information we hold about you by emailing [business email].\n\n## Changes to this page\nWe may update this page from time to time. The date of the latest update is shown at the top of the page."
+  },
+  {
+    "key": "privacy.updated",
+    "group": "Privacy & cookies",
+    "label": "Privacy page — “last updated” line",
+    "type": "text",
+    "default": "Last updated: [add date]"
+  },
+  {
+    "key": "cookie.text",
+    "group": "Privacy & cookies",
+    "label": "Cookie notice — message",
+    "type": "textarea",
+    "default": "This site uses only the essential browser storage it needs to work, and no advertising or analytics cookies."
+  }
+]

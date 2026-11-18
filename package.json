@@ -1,0 +1,44 @@
+{
+  "name": "packup-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "server": "node server/index.js",
+    "typecheck": "tsc --noEmit",
+    "story-images": "node scripts/story-images.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^6.2.1",
+    "archiver": "^8.0.0",
+    "autoprefixer": "^10.6.2",
+    "compression": "^1.8.2",
+    "express": "^4.22.3",
+    "framer-motion": "^14.10.1",
+    "lenis": "^1.3.27",
+    "lucide-react": "^1.70.0",
+    "multer": "^2.5.0",
+    "postcss": "^8.5.32",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
