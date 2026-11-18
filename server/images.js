@@ -2,10 +2,13 @@
 // otherwise uploads are stored exactly as received and everything still works.
 import fs from 'node:fs'
 import path from 'node:path'
+import { createRequire } from 'node:module'
 
+// Loaded synchronously (no top-level await): Hostinger's LiteSpeed runner require()s server.js,
+// and Node refuses to require() an ES module graph that uses top-level await.
 let sharp = null
 try {
-  sharp = (await import('sharp')).default
+  sharp = createRequire(import.meta.url)('sharp')
 } catch {
   /* not available on this host — fine */
 }
