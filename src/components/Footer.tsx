@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import Logo from './Logo'
 import { InstagramIcon, LinkedInIcon, FacebookIcon } from './icons'
-import { nav, placeholder } from '../data/site'
+import { navFlat, placeholder, EXPLORE_LABEL } from '../data/site'
+import { useMarketplace } from './ExploreButton'
 import { useCategories, useSite } from '../cms/CmsContext'
 
 const socials = [
@@ -16,6 +17,7 @@ function Slot({ value, fallback }: { value: string; fallback: string }) {
 
 export default function Footer() {
   const site = useSite()
+  const market = useMarketplace()
   const categories = useCategories()
   return (
     <footer className="navy overflow-hidden">
@@ -33,7 +35,7 @@ export default function Footer() {
                     <Icon />
                   </a>
                 ) : (
-                  <span key={key} aria-label={`${label} (link not set yet)`} title="Add this link in the admin → Contact & social" className={`${cls} cursor-not-allowed text-white/35`}>
+                  <span key={key} aria-label={`${label} (link not set yet)`} title="Add this link in the admin → Contact & links" className={`${cls} cursor-not-allowed text-white/35`}>
                     <Icon />
                   </span>
                 )
@@ -44,18 +46,13 @@ export default function Footer() {
           <nav aria-label="Footer" className="lg:col-span-2">
             <h3 className="eyebrow !text-[11px]">Explore</h3>
             <ul className="mt-5 space-y-3 text-[15px]">
-              {nav.map((n) => (
+              {navFlat.map((n) => (
                 <li key={n.to}>
                   <Link to={n.to} className="text-white/70 transition-colors hover:text-gold">
                     {n.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link to="/contact" className="text-white/70 transition-colors hover:text-gold">
-                  Contact
-                </Link>
-              </li>
             </ul>
           </nav>
 
@@ -79,9 +76,15 @@ export default function Footer() {
               <li><Slot value={site.phone} fallback={placeholder.phone} /></li>
               <li><Slot value={site.location} fallback={placeholder.location} /></li>
             </ul>
-            <Link to="/contact" className="mt-6 inline-flex rounded-xl bg-gold px-5 py-2.5 text-[14px] font-semibold text-charcoal transition hover:brightness-105">
-              Get a quote
-            </Link>
+            {market.external ? (
+              <a href={market.href} {...(market.newTab ? { target: '_blank', rel: 'noopener' } : {})} className="mt-6 inline-flex rounded-xl bg-gold px-5 py-2.5 text-[14px] font-semibold text-charcoal transition hover:brightness-105">
+                {EXPLORE_LABEL}
+              </a>
+            ) : (
+              <Link to={market.to} className="mt-6 inline-flex rounded-xl bg-gold px-5 py-2.5 text-[14px] font-semibold text-charcoal transition hover:brightness-105">
+                {EXPLORE_LABEL}
+              </Link>
+            )}
           </div>
         </div>
 

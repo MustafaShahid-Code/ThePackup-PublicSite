@@ -67,7 +67,7 @@ export default function Contact() {
                         <Icon />
                       </a>
                     ) : (
-                      <span key={k} aria-label={`${label} (link not set yet)`} title="Add this link in the admin → Contact & social" className="flex h-11 w-11 cursor-not-allowed items-center justify-center rounded-full border border-dashed border-gold/70 text-charcoal/40">
+                      <span key={k} aria-label={`${label} (link not set yet)`} title="Add this link in the admin → Contact & links" className="flex h-11 w-11 cursor-not-allowed items-center justify-center rounded-full border border-dashed border-gold/70 text-charcoal/40">
                         <Icon />
                       </span>
                     ),

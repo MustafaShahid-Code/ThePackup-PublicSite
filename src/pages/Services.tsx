@@ -1,10 +1,10 @@
 import { Check } from 'lucide-react'
-import Button from '../components/Button'
 import { DeliverIcon, PackIcon, StoreIcon } from '../components/icons'
 import { CtaBand, PageHero } from '../components/shared'
 import { Reveal } from '../components/motion'
 import { usePageMeta } from '../components/usePageMeta'
 import { useCopy } from '../cms/CmsContext'
+import ExploreButton from '../components/ExploreButton'
 
 const blocks = [
   { key: 'pack', Icon: PackIcon, n: '01' },
@@ -57,9 +57,7 @@ export default function Services() {
                   ))}
                 </ul>
                 <div className="mt-9">
-                  <Button to="/contact" variant="dark">
-                    Get a quote
-                  </Button>
+                  <ExploreButton variant="dark" />
                 </div>
               </Reveal>
             </div>

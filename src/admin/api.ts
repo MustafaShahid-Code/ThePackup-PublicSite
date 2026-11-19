@@ -45,7 +45,7 @@ export interface SchemaField {
 }
 export interface AdminContent {
   copy: Record<string, string>
-  site: { email: string; phone: string; location: string; social: { instagram: string; linkedin: string; facebook: string } }
+  site: { email: string; phone: string; location: string; social: { instagram: string; linkedin: string; facebook: string }; marketplaceUrl: string; marketplaceNewTab: boolean }
   categories: import('../data/content').Category[]
   why: { title: string; text: string }[]
   work: import('../data/work').WorkItem[]

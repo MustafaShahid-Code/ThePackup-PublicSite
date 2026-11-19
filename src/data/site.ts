@@ -14,6 +14,9 @@ export const site = {
     linkedin: '',
     facebook: '',
   },
+  /** The e-commerce platform where customers browse products and send RFQs (set in the admin). */
+  marketplaceUrl: '',
+  marketplaceNewTab: false,
   /**
    * Set VITE_FORM_ENDPOINT in a .env file (e.g. a Formspree / Getform / your own API URL)
    * to make the enquiry forms send real submissions. See README.md.
@@ -28,11 +31,26 @@ export const placeholder = {
   location: '[ Add office location ]',
 }
 
-export const nav = [
+export type NavItem = { label: string; to: string; children?: { label: string; to: string }[] }
+
+/** Main menu, in display order. Items with `children` open a dropdown (desktop) or an indented list (mobile). */
+export const nav: NavItem[] = [
   { label: 'Home', to: '/' },
+  {
+    label: 'About',
+    to: '/about',
+    children: [
+      { label: 'Packaging', to: '/packaging' },
+      { label: 'Gallery', to: '/gallery' },
+    ],
+  },
   { label: 'Services', to: '/services' },
-  { label: 'Packaging', to: '/packaging' },
-  { label: 'Gallery', to: '/gallery' },
+  { label: 'Contact', to: '/contact' },
   { label: 'For Vendors', to: '/vendors' },
-  { label: 'About', to: '/about' },
 ]
+
+/** Every page in the menu, flattened (used by the footer). */
+export const navFlat = nav.flatMap((n) => [{ label: n.label, to: n.to }, ...(n.children ?? [])])
+
+/** Label of the main call-to-action that leads to the e-commerce platform. */
+export const EXPLORE_LABEL = 'Explore products'

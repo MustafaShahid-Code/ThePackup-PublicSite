@@ -14,7 +14,7 @@ const tabs = [
   { id: 'showcase', label: 'Showcase gallery', Icon: ImageIcon },
   { id: 'categories', label: 'Categories', Icon: LayoutGrid },
   { id: 'why', label: 'Why us', Icon: ListChecks },
-  { id: 'site', label: 'Contact & social', Icon: Settings },
+  { id: 'site', label: 'Contact & links', Icon: Settings },
   { id: 'media', label: 'Media library', Icon: Folder },
   { id: 'system', label: 'Health & backups', Icon: ShieldCheck },
   { id: 'account', label: 'Account', Icon: UserCog },

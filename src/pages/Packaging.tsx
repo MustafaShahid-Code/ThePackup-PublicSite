@@ -7,6 +7,7 @@ import { alsoAvailable } from '../data/content'
 import { useCategories, useCopy } from '../cms/CmsContext'
 import { merchants } from '../data/merchants'
 import type { Finish } from '../components/Packaging'
+import ExploreButton from '../components/ExploreButton'
 
 const pizzaVariants: { merchantId: string; finish: Finish; tone: 'ivory' | 'beige' | 'charcoal' | 'kraft' }[] = [
   { merchantId: 'casa-rosso', finish: 'branded', tone: 'beige' },
@@ -76,9 +77,7 @@ export default function PackagingPage() {
                     </ul>
 
                     <div className="mt-10">
-                      <Button to={`/contact?category=${encodeURIComponent(c.title)}`} variant="dark">
-                        Get a quote
-                      </Button>
+                      <ExploreButton variant="dark" />
                     </div>
                   </Reveal>
                 </div>

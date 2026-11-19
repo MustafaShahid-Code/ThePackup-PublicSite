@@ -33,6 +33,8 @@ export function cleanSite(i = {}) {
     phone: str(i.phone, 60).trim(),
     location: str(i.location, 300).trim(),
     social: { instagram: url(s.instagram), linkedin: url(s.linkedin), facebook: url(s.facebook) },
+    marketplaceUrl: url(i.marketplaceUrl),
+    marketplaceNewTab: i.marketplaceNewTab === true,
   }
 }
 

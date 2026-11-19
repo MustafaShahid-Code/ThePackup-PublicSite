@@ -186,7 +186,7 @@ export default function Gallery() {
 
       <AnimatePresence>{open !== null && <Lightbox items={items} index={open} onClose={close} onIndex={setOpen} />}</AnimatePresence>
 
-      <CtaBand title="Want packaging like this? We’ll find the vendor." label="Get a quote" />
+      <CtaBand title="Want packaging like this? We’ll find the vendor." explore />
     </>
   )
 }

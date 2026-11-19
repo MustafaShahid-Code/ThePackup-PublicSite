@@ -16,6 +16,8 @@ interface Props {
   variant?: Variant
   to?: string
   href?: string
+  /** open `href` in a new tab */
+  newTab?: boolean
   onClick?: () => void
   type?: 'button' | 'submit'
   disabled?: boolean
@@ -24,7 +26,7 @@ interface Props {
   className?: string
 }
 
-export default function Button({ children, variant = 'gold', to, href, onClick, type = 'button', disabled, arrow = true, size = 'md', className = '' }: Props) {
+export default function Button({ children, variant = 'gold', to, href, newTab, onClick, type = 'button', disabled, arrow = true, size = 'md', className = '' }: Props) {
   const cls = `btn-shape group inline-flex items-center justify-center gap-2.5 font-sans font-semibold transition duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${
     size === 'md' ? 'px-7 py-3.5 text-[15px]' : 'px-5 py-2.5 text-[14px]'
   } ${styles[variant]} ${className}`
@@ -35,7 +37,7 @@ export default function Button({ children, variant = 'gold', to, href, onClick, 
     </>
   )
   if (to) return <Link to={to} className={cls}>{inner}</Link>
-  if (href) return <a href={href} className={cls}>{inner}</a>
+  if (href) return <a href={href} className={cls} {...(newTab ? { target: '_blank', rel: 'noopener' } : {})}>{inner}</a>
   return (
     <button type={type} onClick={onClick} disabled={disabled} className={cls}>
       {inner}

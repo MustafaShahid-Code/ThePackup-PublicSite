@@ -8,7 +8,7 @@ import { mergeTheme, themeCss, type Theme } from '../../shared/theme.js'
 type SiteInfo = typeof siteDefaults
 export interface CmsData {
   copy: Record<string, string>
-  site: Pick<SiteInfo, 'email' | 'phone' | 'location' | 'social'>
+  site: Pick<SiteInfo, 'email' | 'phone' | 'location' | 'social' | 'marketplaceUrl' | 'marketplaceNewTab'>
   categories: Category[]
   why: WhyItem[]
   work: WorkItem[]

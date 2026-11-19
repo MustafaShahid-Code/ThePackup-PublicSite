@@ -16,8 +16,8 @@ export function SitePanel({ data, reload }: PanelProps) {
   const set = (k: 'email' | 'phone' | 'location', v: string) => setS({ ...s, [k]: v })
   const soc = (k: 'instagram' | 'linkedin' | 'facebook', v: string) => setS({ ...s, social: { ...s.social, [k]: v } })
   return (
-    <Card title="Contact details & social links">
-      <p className="mb-5 max-w-xl text-[14px] text-charcoal/60">Shown in the footer, the header menu and the Contact page. Leave a field empty to keep the “add this” placeholder visible.</p>
+    <Card title="Contact details & links">
+      <p className="mb-5 max-w-xl text-[14px] text-charcoal/60">Contact details are shown in the footer, the header menu and the Contact page. Leave a field empty to keep the “add this” placeholder visible.</p>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Business email">
           <input className={inputCls} type="email" value={s.email} onChange={(e) => set('email', e.target.value)} />
@@ -35,6 +35,22 @@ export function SitePanel({ data, reload }: PanelProps) {
             <input className={inputCls} type="url" placeholder="https://" value={s.social[k]} onChange={(e) => soc(k, e.target.value)} />
           </Field>
         ))}
+      </div>
+      <div className="mt-8 rounded-2xl border border-gold/40 bg-gold/5 p-5">
+        <h4 className="font-display text-lg">“Explore products” button</h4>
+        <p className="mt-1 max-w-xl text-[13px] text-charcoal/60">
+          Every “Explore products” button (header, Home hero, Services, Packaging, footer) sends visitors to your e-commerce platform, where they browse products and submit an RFQ. Until you add the address, the buttons open the Packaging page on this site.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
+          <Field label="E-commerce platform URL" hint="Full address starting with https://">
+            <input className={inputCls} type="url" placeholder="https://shop.thepackup.com" value={s.marketplaceUrl ?? ''} onChange={(e) => setS({ ...s, marketplaceUrl: e.target.value })} />
+          </Field>
+          <label className="mb-2 inline-flex cursor-pointer items-center gap-2 text-[14px]">
+            <input type="checkbox" className="h-4 w-4 accent-[rgb(var(--c-gold))]" checked={s.marketplaceNewTab === true} onChange={(e) => setS({ ...s, marketplaceNewTab: e.target.checked })} />
+            Open in a new tab
+          </label>
+        </div>
+        {s.marketplaceUrl && !/^https?:\/\/\S+$/.test(s.marketplaceUrl.trim()) && <p className="mt-2 text-[13px] font-semibold text-[#B85400]">This must be a full address starting with https:// — otherwise it won’t be saved.</p>}
       </div>
       <div className="mt-6 flex flex-wrap items-center gap-4">
         <Btn variant="gold" disabled={saving} onClick={() => run(async () => { await api.put('/api/admin/site', { site: s }); await reload() })}>

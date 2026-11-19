@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import BrandPreview from '../components/BrandPreview'
 import CubeStack from '../components/CubeStack'
 import ScrollStory, { storySrcSet } from '../components/ScrollStory'
+import ExploreButton from '../components/ExploreButton'
 import { ArtTile, CtaBand, SectionHead } from '../components/shared'
 import { Reveal, WordReveal } from '../components/motion'
 import { usePageMeta } from '../components/usePageMeta'
@@ -48,7 +49,7 @@ function Hero() {
           <Reveal delay={0.25}>
             <p className="lead mt-7 max-w-xl text-white/80">{t('home.heroText')}</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Button to="/contact">Get a quote</Button>
+              <ExploreButton />
               <Button to="/services" variant="outlineLight" arrow={false}>
                 See our services
               </Button>

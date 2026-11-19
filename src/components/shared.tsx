@@ -4,6 +4,7 @@ import { getMerchant } from '../data/merchants'
 import { useCopy } from '../cms/CmsContext'
 import { WordReveal, Reveal } from './motion'
 import Button from './Button'
+import ExploreButton from './ExploreButton'
 
 /** Navy hero used at the top of every inner page. */
 export function PageHero({ eyebrow, title, text, children }: { eyebrow: string; title: string; text?: string; children?: ReactNode }) {
@@ -35,7 +36,7 @@ export function DarkPanel({ children, className = '', id }: { children: ReactNod
 }
 
 /** Closing call-to-action band — the brand orange. */
-export function CtaBand({ title: titleProp, text: textProp, label = 'Get in touch', to = '/contact' }: { title?: string; text?: string; label?: string; to?: string }) {
+export function CtaBand({ title: titleProp, text: textProp, label = 'Get in touch', to = '/contact', explore = false }: { title?: string; text?: string; label?: string; to?: string; explore?: boolean }) {
   const t = useCopy()
   const title = titleProp ?? t('cta.title')
   const text = textProp ?? t('cta.text')
@@ -51,9 +52,13 @@ export function CtaBand({ title: titleProp, text: textProp, label = 'Get in touc
             <h2 className="display-lg">{title}</h2>
             <p className="lead mt-5 max-w-xl text-charcoal/80">{text}</p>
             <div className="mt-8">
-              <Button to={to} variant="dark">
-                {label}
-              </Button>
+              {explore ? (
+                <ExploreButton variant="dark" />
+              ) : (
+                <Button to={to} variant="dark">
+                  {label}
+                </Button>
+              )}
             </div>
           </Reveal>
         </div>
