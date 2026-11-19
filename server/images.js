@@ -4,15 +4,32 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { createRequire } from 'node:module'
 
-// Loaded synchronously (no top-level await): Hostinger's LiteSpeed runner require()s server.js,
-// and Node refuses to require() an ES module graph that uses top-level await.
-let sharp = null
-try {
-  sharp = createRequire(import.meta.url)('sharp')
-} catch {
-  /* not available on this host — fine */
+// `sharp` is loaded lazily, on the first upload — never at startup — and kept to one worker thread.
+// Shared hosting (Hostinger/CloudLinux) caps threads per account: libvips starts a thread per CPU core,
+// which can starve Node's own worker pool so file and compression requests hang (site "keeps loading").
+// Plain require via createRequire (no top-level await): Hostinger's runner require()s server.js.
+const require = createRequire(import.meta.url)
+let sharpMod // undefined = not tried yet, null = unavailable
+function getSharp() {
+  if (sharpMod !== undefined) return sharpMod
+  try {
+    sharpMod = require('sharp')
+    sharpMod.concurrency(1)
+    sharpMod.cache(false)
+  } catch {
+    sharpMod = null // not available on this host — uploads are kept as they are
+  }
+  return sharpMod
 }
-export const hasSharp = Boolean(sharp)
+/** Whether image optimisation is available, checked without loading the library. */
+export const hasSharp = (() => {
+  try {
+    require.resolve('sharp')
+    return true
+  } catch {
+    return false
+  }
+})()
 
 export const VARIANT_WIDTHS = [640, 1200]
 // 2560px keeps full-screen photos (like the Home story) sharp on large and retina screens;
@@ -28,7 +45,8 @@ export const variantsOf = (name) => (name.endsWith('.opt.webp') ? VARIANT_WIDTHS
  * Animated GIFs and failures keep the original.
  */
 export async function optimise(dir, filename) {
-  if (!sharp || /\.gif$/i.test(filename)) return { name: filename, optimised: false }
+  const sharp = /\.gif$/i.test(filename) ? null : getSharp()
+  if (!sharp) return { name: filename, optimised: false }
   const src = path.join(dir, filename)
   const base = filename.replace(/\.[^.]+$/, '')
   const out = `${base}.opt.webp`
