@@ -14,7 +14,7 @@ export const getLenis = () => instance
 export default function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.95, smoothWheel: true, syncTouch: false, anchors: { offset: 0 } })
+    const lenis = new Lenis({ lerp: 0.07, wheelMultiplier: 0.85, smoothWheel: true, syncTouch: false, anchors: { offset: 0 } })
     instance = lenis
     let raf = 0
     const loop = (time: number) => {

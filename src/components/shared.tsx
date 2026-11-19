@@ -77,7 +77,7 @@ export function Placeholder({ children, note = 'Editable placeholder' }: { child
 export function responsiveSrcSet(src: string): string | undefined {
   if (!/^\/uploads\/[\w-]+\.opt\.webp$/.test(src)) return undefined
   const b = src.replace(/\.opt\.webp$/, '')
-  return `${b}.opt-640.webp 640w, ${b}.opt-1200.webp 1200w, ${src} 1800w`
+  return `${b}.opt-640.webp 640w, ${b}.opt-1200.webp 1200w, ${src} 2560w`
 }
 
 /** A toned, rounded tile showing a packaging illustration — or a real photo when `image` is set. */

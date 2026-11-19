@@ -51,6 +51,7 @@ export interface AdminContent {
   work: import('../data/work').WorkItem[]
   theme: import('../../shared/theme.js').Theme
   settings: { cookieNotice: boolean }
+  story: Record<'hero' | 'pack' | 'store' | 'deliver', string>
   presets: { id: string; name: string; theme: import('../../shared/theme.js').Theme }[]
   schema: SchemaField[]
   options: { tones: string[]; kinds: string[]; filters: string[]; finishes: string[]; sizes: string[] }

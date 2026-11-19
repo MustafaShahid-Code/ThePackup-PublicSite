@@ -104,7 +104,13 @@ The Home page opens with a full-screen hero and a three-step scroll story
 trackpad. Visitors who turn on "reduce motion" get plain scrolling and the
 steps as simple stacked sections.
 
-**To put in high-quality photos (recommended 2400px wide or more):**
+**Easiest: change them in the admin.** Go to `/admin` → **Home story photos**.
+Each of the four photos (hero + 3 steps) shows its current image and pixel size,
+warns you if it's too small to look sharp full-screen, and can be swapped for
+an upload or reset to the built-in photo. Uploads are optimised automatically
+(2560px master plus a 1200px copy for phones).
+
+**Or replace the built-in photos in the code (recommended 2400px wide or more):**
 
 1. Copy the originals into `story-src/`, named `hero`, `pack`, `store`, `deliver`
    (`.jpg`, `.png` or `.webp`, any size; landscape works best).

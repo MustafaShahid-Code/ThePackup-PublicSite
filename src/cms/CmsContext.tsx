@@ -14,7 +14,13 @@ export interface CmsData {
   work: WorkItem[]
   theme: Theme
   settings: { cookieNotice: boolean }
+  story: StoryImages
 }
+
+export type StorySlot = 'hero' | 'pack' | 'store' | 'deliver'
+export type StoryImages = Record<StorySlot, string>
+/** Photos that ship with the site; the admin can replace each one. */
+export const STORY_DEFAULTS: StoryImages = { hero: '/story/hero.webp', pack: '/story/pack.webp', store: '/story/store.webp', deliver: '/story/deliver.webp' }
 
 const copyDefaults: Record<string, string> = Object.fromEntries((copySchema as { key: string; default: string }[]).map((f) => [f.key, f.default]))
 
@@ -34,6 +40,9 @@ function merge(d?: Partial<CmsData>): CmsData {
     work: d?.work ?? workDefaults,
     theme: mergeTheme(d?.theme),
     settings: { cookieNotice: d?.settings?.cookieNotice === true },
+    story: Object.fromEntries(
+      (Object.keys(STORY_DEFAULTS) as StorySlot[]).map((k) => [k, d?.story?.[k] || STORY_DEFAULTS[k]]),
+    ) as StoryImages,
   }
 }
 
@@ -78,3 +87,4 @@ export const useCategories = () => useCms().categories
 export const useWhy = () => useCms().why
 export const useWork = () => useCms().work
 export const useSettings = () => useCms().settings
+export const useStory = () => useCms().story

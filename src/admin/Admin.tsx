@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
-import { ExternalLink, FileText, Folder, Image as ImageIcon, LayoutGrid, ListChecks, LogOut, Palette, Settings, ShieldCheck, UserCog } from 'lucide-react'
+import { ExternalLink, FileText, Folder, Image as ImageIcon, LayoutGrid, ListChecks, LogOut, Clapperboard, Palette, Settings, ShieldCheck, UserCog } from 'lucide-react'
 import { LogoMark } from '../components/Logo'
 import { api, ApiError, type AdminContent } from './api'
-import { AccountPanel, CategoriesPanel, CopyPanel, MediaPanel, ShowcasePanel, SitePanel, WhyPanel } from './panels'
+import { AccountPanel, CategoriesPanel, CopyPanel, MediaPanel, ShowcasePanel, SitePanel, StoryPanel, WhyPanel } from './panels'
 import ThemePanel from './ThemePanel'
 import SystemPanel from './SystemPanel'
 import { Btn, Field, inputCls, Notice } from './ui'
 
 const tabs = [
   { id: 'text', label: 'Page text', Icon: FileText },
+  { id: 'story', label: 'Home story photos', Icon: Clapperboard },
   { id: 'theme', label: 'Colours & buttons', Icon: Palette },
   { id: 'showcase', label: 'Showcase gallery', Icon: ImageIcon },
   { id: 'categories', label: 'Categories', Icon: LayoutGrid },
@@ -129,6 +130,7 @@ export default function Admin() {
         ) : (
           <>
             {tab === 'text' && <CopyPanel data={data} reload={reload} />}
+            {tab === 'story' && <StoryPanel data={data} reload={reload} />}
             {tab === 'theme' && <ThemePanel data={data} reload={reload} />}
             {tab === 'showcase' && <ShowcasePanel data={data} reload={reload} />}
             {tab === 'categories' && <CategoriesPanel data={data} reload={reload} />}

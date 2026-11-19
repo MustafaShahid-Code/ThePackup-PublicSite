@@ -5,7 +5,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { ROOT, DATA_DIR, UPLOAD_DIR, defaults, get, save, load } from './store.js'
 import { login, setSession, clearSession, currentUser, requireAdmin, throttled, noteFail, changePassword, adminEmail, adminReady } from './auth.js'
-import { cleanCopy, cleanSite, cleanCategories, cleanWhy, cleanWork, cleanTheme, cleanSettings, OPTIONS } from './validate.js'
+import { cleanCopy, cleanSite, cleanCategories, cleanWhy, cleanWork, cleanTheme, cleanSettings, cleanStory, OPTIONS } from './validate.js'
 import { themeCss, PRESETS } from '../shared/theme.js'
 import compression from 'compression'
 import { ZipArchive } from 'archiver'
@@ -31,7 +31,7 @@ app.use(express.json({ limit: '1mb' }))
 // ---------- public content ----------
 const publicContent = () => {
   const s = get()
-  return { copy: s.copy, site: s.site, categories: s.categories, why: s.why, work: s.work, theme: s.theme, settings: s.settings }
+  return { copy: s.copy, site: s.site, categories: s.categories, why: s.why, work: s.work, theme: s.theme, settings: s.settings, story: cleanStory(s.story) }
 }
 app.get('/api/content', (_req, res) => {
   res.setHeader('Cache-Control', 'no-cache')
@@ -101,6 +101,11 @@ admin.put('/theme', (req, res) => {
   save()
   res.json({ ok: true, theme: get().theme })
 })
+admin.put('/story', (req, res) => {
+  get().story = cleanStory(req.body?.story)
+  save()
+  res.json({ ok: true, story: get().story })
+})
 admin.put('/settings', (req, res) => {
   get().settings = cleanSettings(req.body?.settings)
   save()
@@ -122,7 +127,7 @@ const upload = multer({
     destination: UPLOAD_DIR,
     filename: (_req, file, cb) => cb(null, Date.now().toString(36) + '-' + crypto.randomBytes(4).toString('hex') + EXT[file.mimetype]),
   }),
-  limits: { fileSize: 8 * 1024 * 1024, files: 10 },
+  limits: { fileSize: 15 * 1024 * 1024, files: 10 },
   fileFilter: (_req, file, cb) => cb(null, Boolean(EXT[file.mimetype])),
 })
 const imageFiles = () =>
@@ -135,7 +140,7 @@ const imageFiles = () =>
 admin.get('/media', (_req, res) => res.json({ files: imageFiles() }))
 admin.post('/media', upload.array('files', 10), async (req, res, next) => {
   try {
-    if (!req.files?.length) return res.status(400).json({ error: 'No valid images received (JPG, PNG, WebP, AVIF or GIF, max 8 MB each).' })
+    if (!req.files?.length) return res.status(400).json({ error: 'No valid images received (JPG, PNG, WebP, AVIF or GIF, max 15 MB each).' })
     const files = []
     for (const f of req.files) {
       const r = await optimise(UPLOAD_DIR, f.filename)
@@ -151,7 +156,7 @@ admin.delete('/media/:name', (req, res) => {
   const name = path.basename(req.params.name)
   const url = '/uploads/' + name
   const s = get()
-  const used = s.work.some((w) => w.image === url) || s.categories.some((c) => c.image === url)
+  const used = s.work.some((w) => w.image === url) || s.categories.some((c) => c.image === url) || Object.values(s.story ?? {}).includes(url)
   if (used) return res.status(409).json({ error: 'This image is in use. Remove it from the item first.' })
   try {
     fs.unlinkSync(path.join(UPLOAD_DIR, name))
@@ -203,6 +208,7 @@ admin.post('/backups/:name/restore', (req, res) => {
   s.work = cleanWork(data.work, s.work)
   s.theme = cleanTheme(data.theme)
   s.settings = cleanSettings(data.settings)
+  s.story = cleanStory(data.story)
   save()
   res.json({ ok: true })
 })

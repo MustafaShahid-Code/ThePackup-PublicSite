@@ -5,7 +5,7 @@ import { merchants } from '../data/merchants'
 import type { Category } from '../data/content'
 import type { WorkItem } from '../data/work'
 import { api, type AdminContent, type MediaFile } from './api'
-import { Btn, Card, Field, ImageField, fmtSize, inputCls, Notice, useSaver } from './ui'
+import { Btn, Card, Field, ImageField, ImagePicker, fmtSize, inputCls, Notice, useSaver } from './ui'
 
 type PanelProps = { data: AdminContent; reload: () => Promise<void> }
 
@@ -299,6 +299,102 @@ export function ShowcasePanel({ data, reload }: PanelProps) {
   )
 }
 
+/* ------------------------------------------------ Home story photos */
+const STORY_BUILTIN = { hero: '/story/hero.webp', pack: '/story/pack.webp', store: '/story/store.webp', deliver: '/story/deliver.webp' } as const
+type StoryKey = keyof typeof STORY_BUILTIN
+const STORY_SLOTS: { key: StoryKey; label: string; copyKey?: string; hint: string }[] = [
+  { key: 'hero', label: 'Hero — top of the Home page', hint: 'Full-screen background behind the big “Pack. Store. Deliver.” headline.' },
+  { key: 'pack', label: 'Step 1', copyKey: 'story.c1t', hint: 'Packing: hands, boxes, a packing line.' },
+  { key: 'store', label: 'Step 2', copyKey: 'story.c2t', hint: 'Storage: a warehouse, shelving, stacked stock.' },
+  { key: 'deliver', label: 'Step 3', copyKey: 'story.c3t', hint: 'Delivery: a van, a courier, a hand-over at the door.' },
+]
+
+/** Wide preview that also reports the photo's real pixel size. */
+function StoryPreview({ src }: { src: string }) {
+  const [size, setSize] = useState<{ w: number; h: number } | null>(null)
+  const [missing, setMissing] = useState(false)
+  useEffect(() => {
+    setSize(null)
+    setMissing(false)
+  }, [src])
+  return (
+    <div>
+      <div className="relative aspect-video overflow-hidden rounded-2xl border border-charcoal/15 bg-charcoal">
+        {missing ? (
+          <span className="absolute inset-0 flex items-center justify-center p-4 text-center text-[13px] text-white/70">No photo here yet — the site shows an illustration instead.</span>
+        ) : (
+          <img src={src} alt="" className="h-full w-full object-cover" onLoad={(e) => setSize({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })} onError={() => setMissing(true)} />
+        )}
+      </div>
+      {size && (
+        <p className={`mt-2 text-[12px] ${size.w < 1920 ? 'font-semibold text-[#B85400]' : 'text-charcoal/55'}`}>
+          {size.w} × {size.h} px{size.w < 1920 ? ' — this will look soft full-screen. Use a photo at least 2400 px wide.' : ' — sharp on large screens.'}
+          {size.h > size.w ? ' Portrait photos get cropped heavily; landscape works best.' : ''}
+        </p>
+      )}
+    </div>
+  )
+}
+
+export function StoryPanel({ data, reload }: PanelProps) {
+  const [story, setStory] = useState<Record<StoryKey, string>>(() => ({ ...{ hero: '', pack: '', store: '', deliver: '' }, ...data.story }))
+  const [picking, setPicking] = useState<StoryKey | null>(null)
+  const { run, saving, status } = useSaver()
+  const dirty = (Object.keys(STORY_BUILTIN) as StoryKey[]).some((k) => (story[k] || '') !== (data.story?.[k] || ''))
+  const title = (key?: string) => (key ? data.copy[key] || data.schema.find((f) => f.key === key)?.default || '' : '')
+  return (
+    <Card title="Home page story photos">
+      <p className="mb-6 max-w-2xl text-[14px] text-charcoal/60">
+        These are the full-screen photos at the top of the Home page and in the three scrolling steps. For the best result use <strong>landscape photos at least 2400 px wide</strong>, ideally darker or moody, because white headlines sit on top. Uploads are optimised automatically. The step headlines and texts are edited under <em>Page text → Home page</em>.
+      </p>
+      <div className="grid gap-8 lg:grid-cols-2">
+        {STORY_SLOTS.map((slot) => {
+          const custom = story[slot.key]
+          const shown = custom || STORY_BUILTIN[slot.key]
+          return (
+            <div key={slot.key} className="rounded-2xl border border-charcoal/10 bg-white/50 p-4">
+              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                <h4 className="font-display text-lg">{slot.label}</h4>
+                <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${custom ? 'bg-gold/15 text-[#B85400]' : 'bg-charcoal/10 text-charcoal/60'}`}>{custom ? 'Your photo' : 'Built-in photo'}</span>
+              </div>
+              {slot.copyKey && <p className="mb-2 font-condensed text-xl font-bold uppercase tracking-wide text-charcoal/80">“{title(slot.copyKey)}”</p>}
+              <StoryPreview src={shown} />
+              <p className="mt-2 text-[12px] text-charcoal/55">{slot.hint}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Btn variant="ghost" onClick={() => setPicking(slot.key)}>
+                  {custom ? 'Change photo' : 'Upload / choose photo'}
+                </Btn>
+                {custom && (
+                  <Btn variant="ghost" onClick={() => setStory({ ...story, [slot.key]: '' })}>
+                    Use built-in photo
+                  </Btn>
+                )}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+      <div className="mt-6 flex flex-wrap items-center gap-4">
+        <Btn variant="gold" disabled={saving || !dirty} onClick={() => run(async () => { await api.put('/api/admin/story', { story }); await reload() })}>
+          {saving ? 'Saving…' : 'Save photos'}
+        </Btn>
+        {dirty && !saving && <span className="text-[13px] text-charcoal/60">Unsaved changes</span>}
+        {status}
+        <a href="/" target="_blank" rel="noreferrer" className="text-[13px] font-semibold underline underline-offset-4">View Home page</a>
+      </div>
+      {picking && (
+        <ImagePicker
+          onClose={() => setPicking(null)}
+          onPick={(u) => {
+            setStory({ ...story, [picking]: u })
+            setPicking(null)
+          }}
+        />
+      )}
+    </Card>
+  )
+}
+
 /* ------------------------------------------------ Media */
 export function MediaPanel() {
   const [files, setFiles] = useState<MediaFile[] | null>(null)
@@ -341,7 +437,7 @@ export function MediaPanel() {
         </label>
       }
     >
-      <p className="mb-4 text-[13px] text-charcoal/55">JPG, PNG, WebP, AVIF or GIF · up to 8 MB each. Optimise large photos (about 1600 px wide) before uploading for a faster site. Use images you own or are licensed to use.</p>
+      <p className="mb-4 text-[13px] text-charcoal/55">JPG, PNG, WebP, AVIF or GIF · up to 15 MB each. Photos are resized and compressed automatically (up to 2560 px wide), so you can upload originals. Use images you own or are licensed to use.</p>
       {msg && <div className="mb-4"><Notice kind={msg.k}>{msg.t}</Notice></div>}
       {files === null ? (
         <p className="text-charcoal/60">Loading…</p>

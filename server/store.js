@@ -57,6 +57,7 @@ function seed() {
     work: structuredClone(defaults.work),
     theme: structuredClone(defaults.theme),
     settings: { cookieNotice: false },
+    story: {},
     schemaVersion: 2,
     updatedAt: new Date().toISOString(),
   }
@@ -69,6 +70,7 @@ export function load() {
     // older content files predate these sections
     state.theme ??= structuredClone(defaults.theme)
     state.settings ??= { cookieNotice: false }
+    state.story ??= {}
     // Rebrand (v2): the old "The Pack Up" text, colours and "why" points no longer fit the Packup site.
     // Keep a copy of the old file, then reset only those three; contact details, images, gallery and settings stay.
     if ((state.schemaVersion ?? 1) < 2) {

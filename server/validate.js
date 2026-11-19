@@ -96,3 +96,6 @@ export function cleanWork(input, current) {
 
 export const cleanTheme = (i) => mergeTheme(i)
 export const cleanSettings = (i = {}) => ({ cookieNotice: i.cookieNotice === true })
+// Home page story photos. Empty = use the photo that ships with the site.
+export const STORY_SLOTS = ['hero', 'pack', 'store', 'deliver']
+export const cleanStory = (i = {}) => Object.fromEntries(STORY_SLOTS.map((k) => [k, cleanImage(i?.[k])]))

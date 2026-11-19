@@ -5,15 +5,17 @@ import { ArrowUpRight } from 'lucide-react'
 import Button from '../components/Button'
 import BrandPreview from '../components/BrandPreview'
 import CubeStack from '../components/CubeStack'
-import ScrollStory from '../components/ScrollStory'
+import ScrollStory, { storySrcSet } from '../components/ScrollStory'
 import { ArtTile, CtaBand, SectionHead } from '../components/shared'
 import { Reveal, WordReveal } from '../components/motion'
 import { usePageMeta } from '../components/usePageMeta'
-import { useCategories, useCopy, useWhy } from '../cms/CmsContext'
+import { useCategories, useCopy, useStory, useWhy } from '../cms/CmsContext'
 
 function Hero() {
   const t = useCopy()
-  const [photo, setPhoto] = useState(true)
+  const heroSrc = useStory().hero
+  const [failed, setFailed] = useState('')
+  const photo = failed !== heroSrc
   const words = t('home.heroTitle').split(' ')
   const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
@@ -26,7 +28,7 @@ function Hero() {
     <section ref={ref} className="navy relative flex min-h-[100svh] items-end overflow-hidden pb-14 pt-32 sm:items-center sm:pb-20">
       {photo && (
         <>
-          <motion.img src="/story/hero.webp" srcSet="/story/hero-1280.webp 1280w, /story/hero.webp 2560w" sizes="100vw" alt="" fetchPriority="high" draggable={false} onError={() => setPhoto(false)} style={{ scale: imgScale }} className="absolute inset-0 -z-[1] h-full w-full object-cover will-change-transform" />
+          <motion.img key={heroSrc} src={heroSrc} srcSet={storySrcSet(heroSrc)} sizes="100vw" alt="" fetchPriority="high" draggable={false} onError={() => setFailed(heroSrc)} style={{ scale: imgScale }} className="absolute inset-0 -z-[1] h-full w-full object-cover will-change-transform" />
           <div aria-hidden="true" className="absolute inset-0 -z-[1] bg-gradient-to-r from-charcoal via-charcoal/70 to-charcoal/10" />
           <div aria-hidden="true" className="absolute inset-0 -z-[1] bg-gradient-to-t from-charcoal/90 via-transparent to-charcoal/50" />
         </>

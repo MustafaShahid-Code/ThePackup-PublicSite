@@ -15,13 +15,15 @@ try {
 export const hasSharp = Boolean(sharp)
 
 export const VARIANT_WIDTHS = [640, 1200]
-export const MAX_WIDTH = 1800
+// 2560px keeps full-screen photos (like the Home story) sharp on large and retina screens;
+// smaller screens load the 640/1200px copies instead.
+export const MAX_WIDTH = 2560
 const isVariant = (f) => /\.opt-\d+\.webp$/.test(f)
 export const isListable = (f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f) && !isVariant(f)
 export const variantsOf = (name) => (name.endsWith('.opt.webp') ? VARIANT_WIDTHS.map((w) => name.replace(/\.opt\.webp$/, `.opt-${w}.webp`)) : [])
 
 /**
- * Convert an uploaded raster image to a compressed WebP (max 1800px wide, EXIF rotation applied, metadata stripped)
+ * Convert an uploaded raster image to a compressed WebP (max 2560px wide, EXIF rotation applied, metadata stripped)
  * plus 640px / 1200px variants for responsive loading. Returns the final filename.
  * Animated GIFs and failures keep the original.
  */
@@ -33,7 +35,7 @@ export async function optimise(dir, filename) {
   try {
     const before = fs.statSync(src).size
     const img = sharp(src, { failOn: 'none' }).rotate()
-    await img.clone().resize({ width: MAX_WIDTH, withoutEnlargement: true }).webp({ quality: 80, effort: 4 }).toFile(path.join(dir, out))
+    await img.clone().resize({ width: MAX_WIDTH, withoutEnlargement: true }).webp({ quality: 82, effort: 4, smartSubsample: true }).toFile(path.join(dir, out))
     for (const w of VARIANT_WIDTHS) {
       await img.clone().resize({ width: w, withoutEnlargement: true }).webp({ quality: 78, effort: 4 }).toFile(path.join(dir, `${base}.opt-${w}.webp`))
     }
